@@ -22,10 +22,11 @@
 
     this.one("unveil", function() {
       var bkg_source = this.getAttribute(bkg);
-      var source     = bkg_source !== undefined ? bkg_source : this.getAttribute(attrib);
+      var source     = bkg_source !== null ? bkg_source : this.getAttribute(attrib);
       source         = source || this.getAttribute("data-src");
+    
       if (source) {
-        if (bkg_source !== undefined) {
+        if (bkg_source !== null) {
           this.style.backgroundImage = "url('" + source + "')";
         } else {
           this.setAttribute("src", source);
